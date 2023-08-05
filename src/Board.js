@@ -35,7 +35,7 @@ function Board({ nrows, ncols, chanceLightStartsOn }) {
     let initialBoard = [];
 
     // TODO: create array-of-arrays of true/false values
-    const arrayBorad = [...initialBoard(board.length)].map(() => {
+    const arrayOfArrays = [...initialBoard(board.length)].map(() => {
       return false / true;
     });
     return initialBoard;
@@ -43,6 +43,9 @@ function Board({ nrows, ncols, chanceLightStartsOn }) {
 
   function hasWon() {
     // TODO: check the board in state to determine whether the player has won.
+    const [won, setWon] = useState( board );
+    const hasWon = won ? true : false;
+    return hasWon;
   }
 
   function flipCellsAround(coord) {
