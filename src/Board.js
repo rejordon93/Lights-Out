@@ -33,19 +33,19 @@ function Board({ nrows, ncols, chanceLightStartsOn }) {
   /** create a board nrows high/ncols wide, each cell randomly lit or unlit */
   function createBoard() {
     let initialBoard = [];
-
-    // TODO: create array-of-arrays of true/false values
-    const arrayOfArrays = [...initialBoard(board.length)].map(() => {
-      return false / true;
+    initialBoard.map((item, index) => {
+      return item ? true : false;
     });
-    return initialBoard;
   }
+  // TODO: create array-of-arrays of true/false values
 
   function hasWon() {
     // TODO: check the board in state to determine whether the player has won.
-    const [won, setWon] = useState( board );
-    const hasWon = won ? true : false;
-    return hasWon;
+    const [checked, setChecked] = useState("");
+    if (checked === true) return "Player has won";
+    else {
+      return false;
+    }
   }
 
   function flipCellsAround(coord) {
@@ -61,9 +61,11 @@ function Board({ nrows, ncols, chanceLightStartsOn }) {
       };
 
       // TODO: Make a (deep) copy of the oldBoard
+      const newDeep = JSON.parse(JSON.stringify(oldBoard));
 
       // TODO: in the copy, flip this cell and the cells around it
-
+         const handleFlip = () => {
+          newDeep()
       // TODO: return the copy
     });
   }
